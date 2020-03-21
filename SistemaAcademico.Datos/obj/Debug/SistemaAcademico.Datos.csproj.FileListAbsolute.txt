@@ -1,0 +1,13 @@
+C:\Users\jofel\source\repos\SistemaAcademico\SistemaAcademico.Datos\bin\Debug\SistemaAcademico.Datos.dll.config
+C:\Users\jofel\source\repos\SistemaAcademico\SistemaAcademico.Datos\bin\Debug\SistemaAcademico.Datos.dll
+C:\Users\jofel\source\repos\SistemaAcademico\SistemaAcademico.Datos\bin\Debug\SistemaAcademico.Datos.pdb
+C:\Users\jofel\source\repos\SistemaAcademico\SistemaAcademico.Datos\bin\Debug\EntityFramework.dll
+C:\Users\jofel\source\repos\SistemaAcademico\SistemaAcademico.Datos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\jofel\source\repos\SistemaAcademico\SistemaAcademico.Datos\bin\Debug\EntityFramework.xml
+C:\Users\jofel\source\repos\SistemaAcademico\SistemaAcademico.Datos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\jofel\source\repos\SistemaAcademico\SistemaAcademico.Datos\obj\Debug\SistemaAcademico.Datos.csproj.CopyComplete
+C:\Users\jofel\source\repos\SistemaAcademico\SistemaAcademico.Datos\obj\Debug\SistemaAcademico.Datos.dll
+C:\Users\jofel\source\repos\SistemaAcademico\SistemaAcademico.Datos\obj\Debug\SistemaAcademico.Datos.pdb
+C:\Users\jofel\source\repos\SistemaAcademico\SistemaAcademico.Datos\obj\Debug\SistemaAcademico.Datos.Migrations.DbInicial.resources
+C:\Users\jofel\source\repos\SistemaAcademico\SistemaAcademico.Datos\obj\Debug\SistemaAcademico.Datos.csproj.GenerateResource.cache
+C:\Users\jofel\source\repos\SistemaAcademico\SistemaAcademico.Datos\obj\Debug\SistemaAcademico.Datos.Migrations.AlterEstudiante_nombres_apellidos_obligatorios.resources

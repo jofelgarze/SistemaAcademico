@@ -55,7 +55,9 @@
     <Compile Include="Dto\MatriculacionEstudianteRespDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\IRepositorio.cs" />
+    <Compile Include="Repositorios\IRepositorioNoGenerico.cs" />
     <Compile Include="Repositorios\RepEstudiantes.cs" />
+    <Compile Include="Repositorios\RepEstudiantesNoGenerico.cs" />
     <Compile Include="UtMatriculacion.cs" />
   </ItemGroup>
   <ItemGroup>

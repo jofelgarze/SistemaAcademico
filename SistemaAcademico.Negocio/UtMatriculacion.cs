@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SistemaAcademico.Negocio
 {
-    public class UtMatriculacion
+    public class UtMatriculacion : IDisposable
     {
         private IRepositorio<Estudiante, Int32> repEstudiantes;
         private AcademiaContextoDb _contextoDb;
@@ -17,6 +17,11 @@ namespace SistemaAcademico.Negocio
         {
             _contextoDb = new AcademiaContextoDb();
             repEstudiantes = new RepEstudiantes(_contextoDb);
+        }
+
+        public void Dispose()
+        {
+            _contextoDb.Dispose();
         }
 
         public Dto.MatriculacionEstudianteRespDto MatricularEstudianteNuevo(Dto.MatriculacionEstudianteDto dto) {
@@ -31,7 +36,7 @@ namespace SistemaAcademico.Negocio
                 throw new ApplicationException("El primer nombre es obligatorio");
             }
 
-            if (dto.FechaNacimiento < DateTime.UtcNow.AddYears(-18))
+            if (dto.FechaNacimiento > DateTime.UtcNow.AddYears(-18))
             {
                 throw new ApplicationException("Debe ser mayor de edad");
             }

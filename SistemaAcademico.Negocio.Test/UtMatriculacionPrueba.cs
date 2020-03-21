@@ -75,9 +75,22 @@ namespace SistemaAcademico.Negocio.Test
                 FechaNacimiento = DateTime.Parse("1989-01-30"),
                 PagoRealizado = true
             };
+
             var resultado = matriculacion.MatricularEstudianteNuevo(datos);
 
+            
+
             Assert.AreEqual(datos.PrimerNombre + " " + datos.SegundoNombre, resultado.Nombres);
+            Assert.IsTrue(resultado.CodigoEstudiante > 0);
+
+        }
+
+        [TestMethod]
+        public void PruebaConsutlaEstudianteMatriculado_Existoso()
+        {
+            var resultado = matriculacion.ConsultarRegistroEstudiante(1);
+
+            Assert.AreEqual("Josue Felix", resultado.Nombres);
             Assert.IsTrue(resultado.CodigoEstudiante > 0);
 
         }

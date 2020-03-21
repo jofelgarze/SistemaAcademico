@@ -64,5 +64,15 @@ namespace SistemaAcademico.Negocio
             };
         }
 
+
+        public Dto.MatriculacionEstudianteRespDto ConsultarRegistroEstudiante(int codigoEstudiante) {
+
+            var estudiante = repEstudiantes.consultarPorId(codigoEstudiante);
+            return new Dto.MatriculacionEstudianteRespDto() { 
+                CodigoEstudiante = estudiante.Id,
+                Nombres = estudiante.Nombres,
+                Apellidos = estudiante.Apellidos
+            };
+        }
     }
 }

@@ -16,6 +16,15 @@ namespace SistemaAcademico.Presentacion.Servicios.Administracion
         int RegistrarEstudianteNuevo(MatriculacionEstudianteDto Datos);
 
         [OperationContract]
+        List<MatriculacionEstudianteRespDto> ConsultarEstudiantesMatriculados();
+        
+        [OperationContract]
         MatriculacionEstudianteRespDto ConsultarEstudianteMatriculado(int Identificacion);
+
+        [OperationContract]
+        MatriculacionEstudianteRespDto ModificarEstudianteMatriculado(int Identificacion, MatriculacionEstudianteDto Datos);
+
+        [OperationContract]
+        MatriculacionEstudianteRespDto EliminarEstudianteMatriculado(int Identificacion);
     }
 }

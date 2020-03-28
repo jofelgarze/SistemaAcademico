@@ -30,5 +30,21 @@ namespace SistemaAcademico.Presentacion.Servicios.Administracion
         {
             return matriculacion.ConsultarRegistroEstudiante(Identificacion);
         }
+
+        public List<MatriculacionEstudianteRespDto> ConsultarEstudiantesMatriculados()
+        {
+            return matriculacion.ConsultarEstudiantes();
+        }
+
+        public MatriculacionEstudianteRespDto ModificarEstudianteMatriculado(int Identificacion, MatriculacionEstudianteDto Datos)
+        {
+            return matriculacion.ModificarEstudianteMatriculado(Identificacion, Datos);
+        }
+
+        public MatriculacionEstudianteRespDto EliminarEstudianteMatriculado(int Identificacion)
+        {
+            matriculacion.EliminarRegistroEstudiante(Identificacion);
+            return null;
+        }
     }
 }

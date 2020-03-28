@@ -60,6 +60,7 @@ namespace SistemaAcademico.Negocio.Repositorios
         public void eliminar(Estudiante dato)
         {
             _contextoDb.Estudiantes.Remove(dato);
+            _contextoDb.SaveChanges();
         }
 
         public Estudiante modificar(Estudiante dato)

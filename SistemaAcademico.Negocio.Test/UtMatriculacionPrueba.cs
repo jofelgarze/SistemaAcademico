@@ -3,6 +3,8 @@ using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SistemaAcademico.Negocio.Dto;
+using SistemaAcademico.Datos;
+using System.Linq;
 
 namespace SistemaAcademico.Negocio.Test
 {
@@ -13,6 +15,8 @@ namespace SistemaAcademico.Negocio.Test
     public class UtMatriculacionPrueba
     {
         private static UtMatriculacion matriculacion;
+        private static AcademiaContextoDb contexto;
+        private static int CodigoEstudiante;
 
         public UtMatriculacionPrueba()
         {
@@ -45,6 +49,8 @@ namespace SistemaAcademico.Negocio.Test
         [ClassInitialize()]
         public static void MyClassInitialize(TestContext testContext) {
             matriculacion = new UtMatriculacion();
+            contexto = new AcademiaContextoDb();
+            
         }
 
         // Use ClassCleanup para ejecutar el código una vez ejecutadas todas las pruebas en una clase
@@ -77,8 +83,7 @@ namespace SistemaAcademico.Negocio.Test
             };
 
             var resultado = matriculacion.MatricularEstudianteNuevo(datos);
-
-            
+            CodigoEstudiante = resultado.CodigoEstudiante;
 
             Assert.AreEqual(datos.PrimerNombre + " " + datos.SegundoNombre, resultado.Nombres);
             Assert.IsTrue(resultado.CodigoEstudiante > 0);
@@ -88,10 +93,44 @@ namespace SistemaAcademico.Negocio.Test
         [TestMethod]
         public void PruebaConsutlaEstudianteMatriculado_Existoso()
         {
-            var resultado = matriculacion.ConsultarRegistroEstudiante(1);
+            CodigoEstudiante = contexto.Estudiantes.ToList().Last().Id;
+            var resultado = matriculacion.ConsultarRegistroEstudiante(CodigoEstudiante);
 
             Assert.AreEqual("Josue Felix", resultado.Nombres);
             Assert.IsTrue(resultado.CodigoEstudiante > 0);
+
+        }
+
+        [TestMethod]
+        public void PruebaModificarEstudianteMatriculado_Existoso()
+        {
+            CodigoEstudiante = contexto.Estudiantes.ToList().Last().Id;
+            var datos = new MatriculacionEstudianteDto()
+            {
+                PrimerNombre = "Andres",
+                SegundoNombre = "Alex",
+                PrimerApellido = "García",
+                SegundoApellido = "Zelaya",
+                FechaNacimiento = DateTime.Parse("1992-01-30"),
+                PagoRealizado = true
+            };
+
+            var resultado = matriculacion.ModificarEstudianteMatriculado(CodigoEstudiante, datos);
+
+            Assert.AreEqual(datos.PrimerNombre + " " + datos.SegundoNombre, resultado.Nombres);
+            Assert.IsTrue(resultado.CodigoEstudiante > 0);
+
+        }
+
+        [TestMethod]
+        public void PruebaEliminarEstudianteMatriculado_Existoso()
+        {
+            CodigoEstudiante = contexto.Estudiantes.ToList().Last().Id;
+            var resultado = matriculacion.ConsultarRegistroEstudiante(CodigoEstudiante);
+
+            matriculacion.EliminarRegistroEstudiante(resultado.CodigoEstudiante);
+
+            Assert.IsNull(matriculacion.ConsultarRegistroEstudiante(resultado.CodigoEstudiante));
 
         }
     }

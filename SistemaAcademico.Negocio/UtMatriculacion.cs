@@ -71,7 +71,8 @@ namespace SistemaAcademico.Negocio
             return new Dto.MatriculacionEstudianteRespDto() { 
                 CodigoEstudiante = estudiante.Id,
                 Nombres = estudiante.Nombres,
-                Apellidos = estudiante.Apellidos
+                Apellidos = estudiante.Apellidos,
+                FechaMatriculacion = estudiante.FechaNacimiento
             };
         }
     }

@@ -11,6 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaAcademico.Negocio.Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaAcademico.Presentacion.Servicios", "SistemaAcademico.Presentacion.Servicios\SistemaAcademico.Presentacion.Servicios.csproj", "{877AA138-C2C1-464C-86C1-124709D74E90}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaAcademico.Presentacion.Web", "SistemaAcademico.Presentacion.Web\SistemaAcademico.Presentacion.Web.csproj", "{A1CF43AF-9E67-460B-83C5-A9164779A25D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{877AA138-C2C1-464C-86C1-124709D74E90} = {877AA138-C2C1-464C-86C1-124709D74E90}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +38,10 @@ Global
 		{877AA138-C2C1-464C-86C1-124709D74E90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{877AA138-C2C1-464C-86C1-124709D74E90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{877AA138-C2C1-464C-86C1-124709D74E90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1CF43AF-9E67-460B-83C5-A9164779A25D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1CF43AF-9E67-460B-83C5-A9164779A25D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1CF43AF-9E67-460B-83C5-A9164779A25D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1CF43AF-9E67-460B-83C5-A9164779A25D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

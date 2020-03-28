@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:56364/Administracion/MatriculacionService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SistemaAcademico.Negocio.Dto" />
+  <xs:import schemaLocation="http://localhost:56364/Administracion/MatriculacionService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SistemaAcademico.Presentacion.Servicios.Dto" />
+  <xs:element name="RegistrarEstudianteNuevo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SistemaAcademico.Negocio.Dto" minOccurs="0" name="Datos" nillable="true" type="q1:MatriculacionEstudianteDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistrarEstudianteNuevoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SistemaAcademico.Presentacion.Servicios.Dto" minOccurs="0" name="RegistrarEstudianteNuevoResult" nillable="true" type="q2:RespuestaOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarEstudiantesMatriculados">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarEstudiantesMatriculadosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SistemaAcademico.Presentacion.Servicios.Dto" minOccurs="0" name="ConsultarEstudiantesMatriculadosResult" nillable="true" type="q3:RespuestaOfArrayOfMatriculacionEstudianteRespDto89vZh_Sq3" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarEstudianteMatriculado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Identificacion" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarEstudianteMatriculadoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SistemaAcademico.Presentacion.Servicios.Dto" minOccurs="0" name="ConsultarEstudianteMatriculadoResult" nillable="true" type="q4:RespuestaOfMatriculacionEstudianteRespDto89vZh_Sq3" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModificarEstudianteMatriculado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Identificacion" type="xs:int" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SistemaAcademico.Negocio.Dto" minOccurs="0" name="Datos" nillable="true" type="q5:MatriculacionEstudianteDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModificarEstudianteMatriculadoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SistemaAcademico.Presentacion.Servicios.Dto" minOccurs="0" name="ModificarEstudianteMatriculadoResult" nillable="true" type="q6:RespuestaOfMatriculacionEstudianteRespDto89vZh_Sq3" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EliminarEstudianteMatriculado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Identificacion" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EliminarEstudianteMatriculadoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SistemaAcademico.Presentacion.Servicios.Dto" minOccurs="0" name="EliminarEstudianteMatriculadoResult" nillable="true" type="q7:RespuestaOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

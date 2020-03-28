@@ -72,7 +72,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Administracion\MatriculacionService.svc" />
-    <Content Include="Service1.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -82,10 +81,6 @@
     </Compile>
     <Compile Include="Dto\Respuesta.cs" />
     <Compile Include="Dto\TipoRespuestaEnum.cs" />
-    <Compile Include="Service1.svc.cs">
-      <DependentUpon>Service1.svc</DependentUpon>
-    </Compile>
-    <Compile Include="IService1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

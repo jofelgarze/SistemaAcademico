@@ -24,4 +24,3 @@ C:\Users\jofel\Source\Repos\SistemaAcademico2\SistemaAcademico.Datos\obj\Debug\S
 C:\Users\jofel\Source\Repos\SistemaAcademico2\SistemaAcademico.Datos\obj\Debug\SistemaAcademico.Datos.csproj.CopyComplete
 C:\Users\jofel\Source\Repos\SistemaAcademico2\SistemaAcademico.Datos\obj\Debug\SistemaAcademico.Datos.dll
 C:\Users\jofel\Source\Repos\SistemaAcademico2\SistemaAcademico.Datos\obj\Debug\SistemaAcademico.Datos.pdb
-C:\Users\jofel\source\repos\SistemaAcademico\SistemaAcademico.Datos\obj\Debug\SistemaAcademico.Datos.csprojAssemblyReference.cache

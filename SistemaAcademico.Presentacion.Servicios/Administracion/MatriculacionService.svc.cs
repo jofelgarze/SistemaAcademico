@@ -1,5 +1,6 @@
 ﻿using SistemaAcademico.Negocio;
 using SistemaAcademico.Negocio.Dto;
+using SistemaAcademico.Presentacion.Servicios.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +21,30 @@ namespace SistemaAcademico.Presentacion.Servicios.Administracion
             matriculacion = new UtMatriculacion();
         }
 
-        public int RegistrarEstudianteNuevo(MatriculacionEstudianteDto Datos)
+        public Respuesta<int> RegistrarEstudianteNuevo(MatriculacionEstudianteDto Datos)
         {
-            var resultado = matriculacion.MatricularEstudianteNuevo(Datos);
-            return resultado.CodigoEstudiante;
+            try
+            {
+                var resultado = matriculacion.MatricularEstudianteNuevo(Datos);
+
+                return new Respuesta<int>() {
+                    Codigo = 0,
+                    Mensaje = "Se ingreso el estudiante con exito",
+                    TipoRespuesta = TipoRespuestaEnum.OK,
+                    Datos = resultado.CodigoEstudiante
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Respuesta<int>()
+                {
+                    Codigo = 500,
+                    Mensaje = "Error al guardar registro: " + ex.Message,
+                    TipoRespuesta = TipoRespuestaEnum.ERROR
+                };
+            }
+            
+            
         }
 
         public MatriculacionEstudianteRespDto ConsultarEstudianteMatriculado(int Identificacion)

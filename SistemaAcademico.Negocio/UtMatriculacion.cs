@@ -24,6 +24,15 @@ namespace SistemaAcademico.Negocio
             _contextoDb.Dispose();
         }
 
+        /// <summary>
+        /// Registrar un nuevo estudiante en el sistema, se valida que el estudiante no exista previamente;
+        /// ademas deberá de tener cancelado los valores adeudados.
+        /// </summary>
+        /// <param name="dto">
+        ///     Datos del estudiante, los campos: <code>nombre</code>,<code>apellido</code>,
+        ///     <code>fechaNacimiento</code> son obligatorios
+        /// </param>
+        /// <returns>Instancia del objeto estudiante con su respectivo Id</returns>
         public Dto.MatriculacionEstudianteRespDto MatricularEstudianteNuevo(Dto.MatriculacionEstudianteDto dto) {
 
             if (String.IsNullOrEmpty(dto.PrimerNombre))

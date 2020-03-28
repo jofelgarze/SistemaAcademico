@@ -80,6 +80,8 @@
     <Compile Include="Administracion\MatriculacionService.svc.cs">
       <DependentUpon>MatriculacionService.svc</DependentUpon>
     </Compile>
+    <Compile Include="Dto\Respuesta.cs" />
+    <Compile Include="Dto\TipoRespuestaEnum.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
     </Compile>

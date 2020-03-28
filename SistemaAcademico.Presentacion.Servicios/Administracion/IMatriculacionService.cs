@@ -1,4 +1,5 @@
 ﻿using SistemaAcademico.Negocio.Dto;
+using SistemaAcademico.Presentacion.Servicios.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace SistemaAcademico.Presentacion.Servicios.Administracion
     public interface IMatriculacionService
     {
         [OperationContract]
-        int RegistrarEstudianteNuevo(MatriculacionEstudianteDto Datos);
+        Respuesta<int> RegistrarEstudianteNuevo(MatriculacionEstudianteDto Datos);
 
         [OperationContract]
         List<MatriculacionEstudianteRespDto> ConsultarEstudiantesMatriculados();

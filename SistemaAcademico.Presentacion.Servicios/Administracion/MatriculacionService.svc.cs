@@ -47,25 +47,99 @@ namespace SistemaAcademico.Presentacion.Servicios.Administracion
             
         }
 
-        public MatriculacionEstudianteRespDto ConsultarEstudianteMatriculado(int Identificacion)
+        public Respuesta<MatriculacionEstudianteRespDto> ConsultarEstudianteMatriculado(int Identificacion)
         {
-            return matriculacion.ConsultarRegistroEstudiante(Identificacion);
+            try
+            {
+                return new Respuesta<MatriculacionEstudianteRespDto>()
+                {
+                    Codigo = 0,
+                    Mensaje = "",
+                    TipoRespuesta = TipoRespuestaEnum.OK,
+                    Datos = matriculacion.ConsultarRegistroEstudiante(Identificacion)
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Respuesta<MatriculacionEstudianteRespDto>()
+                {
+                    Codigo = 500,
+                    Mensaje = "Error al consultar registro: " + ex.Message,
+                    TipoRespuesta = TipoRespuestaEnum.ERROR
+                };
+            }
+            
         }
 
-        public List<MatriculacionEstudianteRespDto> ConsultarEstudiantesMatriculados()
+        public Respuesta<List<MatriculacionEstudianteRespDto>> ConsultarEstudiantesMatriculados()
         {
-            return matriculacion.ConsultarEstudiantes();
+            try
+            {
+                return new Respuesta<List<MatriculacionEstudianteRespDto>>()
+                {
+                    Codigo = 0,
+                    Mensaje = "",
+                    TipoRespuesta = TipoRespuestaEnum.OK,
+                    Datos = matriculacion.ConsultarEstudiantes()
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Respuesta<List<MatriculacionEstudianteRespDto>>()
+                {
+                    Codigo = 500,
+                    Mensaje = "Error al consultar registro: " + ex.Message,
+                    TipoRespuesta = TipoRespuestaEnum.ERROR
+                };
+            }
         }
 
-        public MatriculacionEstudianteRespDto ModificarEstudianteMatriculado(int Identificacion, MatriculacionEstudianteDto Datos)
+        public Respuesta<MatriculacionEstudianteRespDto> ModificarEstudianteMatriculado(int Identificacion, MatriculacionEstudianteDto Datos)
         {
-            return matriculacion.ModificarEstudianteMatriculado(Identificacion, Datos);
+            try
+            {
+                var resultado = matriculacion.ModificarEstudianteMatriculado(Identificacion, Datos);
+
+                return new Respuesta<MatriculacionEstudianteRespDto>()
+                {
+                    Codigo = 0,
+                    Mensaje = "Se actualizo el estudiante con exito",
+                    TipoRespuesta = TipoRespuestaEnum.OK,
+                    Datos = resultado
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Respuesta<MatriculacionEstudianteRespDto>()
+                {
+                    Codigo = 500,
+                    Mensaje = "Error al actualizar registro: " + ex.Message,
+                    TipoRespuesta = TipoRespuestaEnum.ERROR
+                };
+            }
         }
 
-        public MatriculacionEstudianteRespDto EliminarEstudianteMatriculado(int Identificacion)
+        public Respuesta<string> EliminarEstudianteMatriculado(int Identificacion)
         {
-            matriculacion.EliminarRegistroEstudiante(Identificacion);
-            return null;
+            try
+            {
+                matriculacion.EliminarRegistroEstudiante(Identificacion);
+                return new Respuesta<string>()
+                {
+                    Codigo = 0,
+                    Mensaje = "Se elimino el estudiante con exito",
+                    TipoRespuesta = TipoRespuestaEnum.OK
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Respuesta<string>()
+                {
+                    Codigo = 500,
+                    Mensaje = "Error al eliminar registro: " + ex.Message,
+                    TipoRespuesta = TipoRespuestaEnum.ERROR
+                };
+            }
         }
     }
 }

@@ -17,15 +17,15 @@ namespace SistemaAcademico.Presentacion.Servicios.Administracion
         Respuesta<int> RegistrarEstudianteNuevo(MatriculacionEstudianteDto Datos);
 
         [OperationContract]
-        List<MatriculacionEstudianteRespDto> ConsultarEstudiantesMatriculados();
+        Respuesta<List<MatriculacionEstudianteRespDto>> ConsultarEstudiantesMatriculados();
         
         [OperationContract]
-        MatriculacionEstudianteRespDto ConsultarEstudianteMatriculado(int Identificacion);
+        Respuesta<MatriculacionEstudianteRespDto> ConsultarEstudianteMatriculado(int Identificacion);
 
         [OperationContract]
-        MatriculacionEstudianteRespDto ModificarEstudianteMatriculado(int Identificacion, MatriculacionEstudianteDto Datos);
+        Respuesta<MatriculacionEstudianteRespDto> ModificarEstudianteMatriculado(int Identificacion, MatriculacionEstudianteDto Datos);
 
         [OperationContract]
-        MatriculacionEstudianteRespDto EliminarEstudianteMatriculado(int Identificacion);
+        Respuesta<string> EliminarEstudianteMatriculado(int Identificacion);
     }
 }

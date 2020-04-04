@@ -117,6 +117,7 @@
     </None>
     <Content Include="Administracion\Catalogos\Default.aspx" />
     <Content Include="Administracion\Catalogos\Mantenimiento.aspx" />
+    <Content Include="Administracion\ConsutaMatriculacion.aspx" />
     <Content Include="Administracion\MatriculacionEstudiante.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -210,6 +211,13 @@
     </Compile>
     <Compile Include="Administracion\Catalogos\Mantenimiento.aspx.designer.cs">
       <DependentUpon>Mantenimiento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\ConsutaMatriculacion.aspx.cs">
+      <DependentUpon>ConsutaMatriculacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administracion\ConsutaMatriculacion.aspx.designer.cs">
+      <DependentUpon>ConsutaMatriculacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administracion\MatriculacionEstudiante.aspx.cs">
       <DependentUpon>MatriculacionEstudiante.aspx</DependentUpon>

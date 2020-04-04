@@ -11,8 +11,7 @@ namespace SistemaAcademico.Presentacion.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            MatriculacionService.MatriculacionServiceClient serviceClient = new MatriculacionService.MatriculacionServiceClient();
-            var resultado = serviceClient.ConsultarEstudianteMatriculado(1);
+           
         }
     }
 }

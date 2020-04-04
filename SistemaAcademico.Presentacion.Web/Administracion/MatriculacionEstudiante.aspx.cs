@@ -13,5 +13,42 @@ namespace SistemaAcademico.Presentacion.Web.Administracion
         {
 
         }
+
+        protected void btnMatricular_Click(object sender, EventArgs e)
+        {
+            MatriculacionService.MatriculacionServiceClient serviceClient = new MatriculacionService.MatriculacionServiceClient();
+            var resultado = serviceClient.RegistrarEstudianteNuevo(new MatriculacionService.MatriculacionEstudianteDto
+            {
+                PrimerNombre = txtNombres.Text,
+                PrimerApellido = txtApellidos.Text,
+                PagoRealizado = chkPagoRealizado.Checked,
+                FechaNacimiento = DateTime.UtcNow.AddYears(-18)               
+            });            
+            if (resultado.TipoRespuesta == MatriculacionService.TipoRespuestaEnum.OK)
+            {
+                btnCancelar_Click(null,null);
+                pnlMensaje.CssClass = "alert alert-success";
+                pnlMensaje.Visible = true;
+                lblMensaje.Text = resultado.Mensaje + "; Id. Estudiante: " + resultado.Datos;
+            }
+            else {
+                pnlMensaje.CssClass = "alert alert-danger";
+                pnlMensaje.Visible = true;
+                lblMensaje.Text = resultado.Mensaje;
+            }
+            
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            pnlMensaje.CssClass = "";
+            pnlMensaje.Visible = false;
+            lblMensaje.Text = "";
+
+            txtApellidos.Text = "";
+            txtNombres.Text = "";
+            chkPagoRealizado.Checked = false;
+
+        }
     }
 }

@@ -7,11 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace SistemaAcademico.Presentacion.Web
+namespace SistemaAcademico.Presentacion.Web.Administracion
 {
 
 
-    public partial class Contact
+    public partial class MatriculacionEstudiante
     {
     }
 }

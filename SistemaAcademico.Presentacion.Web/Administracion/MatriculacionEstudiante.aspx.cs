@@ -17,13 +17,15 @@ namespace SistemaAcademico.Presentacion.Web.Administracion
         protected void btnMatricular_Click(object sender, EventArgs e)
         {
             MatriculacionService.MatriculacionServiceClient serviceClient = new MatriculacionService.MatriculacionServiceClient();
-            var resultado = serviceClient.RegistrarEstudianteNuevo(new MatriculacionService.MatriculacionEstudianteDto
-            {
-                PrimerNombre = txtNombres.Text,
-                PrimerApellido = txtApellidos.Text,
-                PagoRealizado = chkPagoRealizado.Checked,
-                FechaNacimiento = DateTime.UtcNow.AddYears(-18)               
-            });            
+
+            var parametros = new MatriculacionService.MatriculacionEstudianteDto();
+            parametros.PrimerNombre = txtNombres.Text;
+            parametros.PrimerApellido = txtApellidos.Text;
+            parametros.PagoRealizado = chkPagoRealizado.Checked;
+            parametros.FechaNacimiento = DateTime.UtcNow.AddYears(-18);
+            
+            var resultado = serviceClient.RegistrarEstudianteNuevo(parametros);
+
             if (resultado.TipoRespuesta == MatriculacionService.TipoRespuestaEnum.OK)
             {
                 btnCancelar_Click(null,null);

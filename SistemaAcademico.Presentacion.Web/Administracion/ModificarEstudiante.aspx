@@ -1,8 +1,8 @@
-﻿<%@ Page Title="Matricular Estudiante" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MatriculacionEstudiante.aspx.cs" Inherits="SistemaAcademico.Presentacion.Web.Administracion.MatriculacionEstudiante" %>
+﻿<%@ Page Title="Modificar Estudiante" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ModificarEstudiante.aspx.cs" Inherits="SistemaAcademico.Presentacion.Web.Administracion.ModificarEstudiante" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %>.</h2>
-    <h4>Datos personales del aspirante</h4>
+       <h2><%: Title %>.</h2>
+    <h4>Modificar datos personales del estudiante</h4>
     <div class="form-horizontal">
         <div class="row">
             <asp:Panel ID="pnlMensaje" runat="server" Visible="false">
@@ -26,14 +26,14 @@
                     <div class="col-sm-8"> 
                         <div class="checkbox">
                             <label>
-                                <asp:CheckBox ID="chkPagoRealizado" runat="server" /> Pago Realizado
+                                <asp:CheckBox ID="chkPagoRealizado2" runat="server" /> Pago Realizado
                             </label>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-4 col-sm-8">
-                        <asp:Button ID="btnMatricular" runat="server" CssClass="btn btn-success" Text="Matricular" OnClick="btnMatricular_Click" />
+                        <asp:Button ID="btnGuardar" runat="server" CssClass="btn btn-success" Text="Guardar" OnClick="btnGuardar_Click" />
                         <asp:Button ID="btnCancelar" runat="server" CssClass="btn btn-danger" Text="Cancelar" OnClick="btnCancelar_Click" CausesValidation="False" />
                     </div>
                 </div>

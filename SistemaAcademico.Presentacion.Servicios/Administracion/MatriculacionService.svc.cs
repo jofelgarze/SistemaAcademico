@@ -51,12 +51,23 @@ namespace SistemaAcademico.Presentacion.Servicios.Administracion
         {
             try
             {
+                var resultado = matriculacion.ConsultarRegistroEstudiante(Identificacion);
+                if (resultado != null)
+                {
+                    return new Respuesta<MatriculacionEstudianteRespDto>()
+                    {
+                        Codigo = 0,
+                        Mensaje = "",
+                        TipoRespuesta = TipoRespuestaEnum.OK,
+                        Datos = resultado
+                    };
+                }
                 return new Respuesta<MatriculacionEstudianteRespDto>()
                 {
                     Codigo = 0,
-                    Mensaje = "",
+                    Mensaje = "No se encontró el registro",
                     TipoRespuesta = TipoRespuestaEnum.OK,
-                    Datos = matriculacion.ConsultarRegistroEstudiante(Identificacion)
+                    Datos = null
                 };
             }
             catch (Exception ex)

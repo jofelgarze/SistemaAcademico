@@ -84,7 +84,7 @@ namespace SistemaAcademico.Negocio
 
             if (String.IsNullOrEmpty(dto.PrimerApellido))
             {
-                throw new ApplicationException("El primer nombre es obligatorio");
+                throw new ApplicationException("El primer apellido es obligatorio");
             }
 
             if (dto.FechaNacimiento > DateTime.UtcNow.AddYears(-18))

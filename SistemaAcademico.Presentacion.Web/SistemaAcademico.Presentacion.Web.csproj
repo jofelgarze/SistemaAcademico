@@ -119,6 +119,7 @@
     <Content Include="Administracion\Catalogos\Mantenimiento.aspx" />
     <Content Include="Administracion\ConsutaMatriculacion.aspx" />
     <Content Include="Administracion\MatriculacionEstudiante.aspx" />
+    <Content Include="Administracion\ModificarEstudiante.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -225,6 +226,13 @@
     </Compile>
     <Compile Include="Administracion\MatriculacionEstudiante.aspx.designer.cs">
       <DependentUpon>MatriculacionEstudiante.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\ModificarEstudiante.aspx.cs">
+      <DependentUpon>ModificarEstudiante.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administracion\ModificarEstudiante.aspx.designer.cs">
+      <DependentUpon>ModificarEstudiante.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
@@ -13,11 +15,17 @@ namespace SistemaAcademico.Presentacion.WebTradicional.Models
     // Para agregar datos del usuario, agregue más propiedades a su clase de usuario. Visite https://go.microsoft.com/fwlink/?LinkID=317594 para obtener más información.
     public class ApplicationUser : IdentityUser
     {
+        [Required]
+        [Column(TypeName = "varchar")]
+        [MaxLength(13)]
+        public string Identificacion { get; set; }
+
         public ClaimsIdentity GenerateUserIdentity(ApplicationUserManager manager)
         {
             // Tenga en cuenta que authenticationType debe coincidir con el valor definido en CookieAuthenticationOptions.AuthenticationType
             var userIdentity = manager.CreateIdentity(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Agregar reclamaciones de usuario personalizadas aquí
+            userIdentity.AddClaim(new Claim("Identificacion", this.Identificacion));
             return userIdentity;
         }
 

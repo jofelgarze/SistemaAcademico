@@ -2,43 +2,47 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
         <h4>Estudiantes</h4>
     <hr />
-    <div class="row">
-        <div class="col-md-12">
-            <div class="form-horizontal">
-                <div class="col-md-8">
-                    <div class="form-group">
-                        <label class="label-form col-md-4">Nombres</label>
+
+    <asp:Panel ID="pnlFrmEstudiante" runat="server">
+         <div class="row">
+                <div class="col-md-12">
+                    <div class="form-horizontal">
                         <div class="col-md-8">
-                            <asp:TextBox ID="txtNombres" runat="server" CssClass="form-control"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="label-form col-md-4">Apellidos</label>
-                        <div class="col-md-8">
-                            <asp:TextBox ID="txtApellidos" runat="server" CssClass="form-control"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="label-form col-md-4">Fecha Nac.</label>
-                        <div class="col-md-8">
-                            <asp:TextBox ID="txtFechaNac" runat="server" CssClass="form-control"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="label-form col-md-4">Activo</label>
-                        <div class="col-md-8">
-                            <asp:CheckBox ID="chkActivo" runat="server"  CssClass="label-form"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-4 col-md-8">
-                            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-primary" OnClick="btnGuardar_Click"/>
+                            <div class="form-group">
+                                <label class="label-form col-md-4">Nombres</label>
+                                <div class="col-md-8">
+                                    <asp:TextBox ID="txtNombres" runat="server" CssClass="form-control"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="label-form col-md-4">Apellidos</label>
+                                <div class="col-md-8">
+                                    <asp:TextBox ID="txtApellidos" runat="server" CssClass="form-control"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="label-form col-md-4">Fecha Nac.</label>
+                                <div class="col-md-8">
+                                    <asp:TextBox ID="txtFechaNac" runat="server" CssClass="form-control"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="label-form col-md-4">Activo</label>
+                                <div class="col-md-8">
+                                    <asp:CheckBox ID="chkActivo" runat="server"  CssClass="label-form"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-4 col-md-8">
+                                    <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-primary" OnClick="btnGuardar_Click"/>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+    </asp:Panel>
+    
     <div class="row">
         <div class="col-md-12">
             <asp:GridView ID="dgvEstudiantes" runat="server" 

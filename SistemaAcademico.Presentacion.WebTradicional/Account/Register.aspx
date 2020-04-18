@@ -11,6 +11,22 @@
         <hr />
         <asp:ValidationSummary runat="server" CssClass="text-danger" />
         <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="txtIdentificacion" CssClass="col-md-2 control-label">Identificacion</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="txtIdentificacion" CssClass="form-control "/>
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtIdentificacion"
+                    CssClass="text-danger" ErrorMessage="El campo de Identificacion es obligatorio." />
+            </div>
+        </div>
+         <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="txtUsuario" CssClass="col-md-2 control-label">Usuario</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="txtUsuario" CssClass="form-control" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="txtUsuario"
+                    CssClass="text-danger" ErrorMessage="El campo de usuario es obligatorio." />
+            </div>
+        </div>
+        <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Correo electrónico</asp:Label>
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" />

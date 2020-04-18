@@ -13,7 +13,7 @@ namespace SistemaAcademico.Presentacion.WebTradicional
         private RepEstudiantes repositorio = new RepEstudiantes();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            pnlFrmEstudiante.Visible = User.Identity.IsAuthenticated && User.IsInRole("Administrador");
         }
 
         private void LimpiarCampos()

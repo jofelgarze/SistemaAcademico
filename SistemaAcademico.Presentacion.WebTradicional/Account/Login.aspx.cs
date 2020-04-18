@@ -15,7 +15,6 @@ namespace SistemaAcademico.Presentacion.WebTradicional.Account
             RegisterHyperLink.NavigateUrl = "Register";
             // Habilite esta opción una vez tenga la confirmación de la cuenta habilitada para la funcionalidad de restablecimiento de contraseña
             //ForgotPasswordHyperLink.NavigateUrl = "Forgot";
-            OpenAuthLogin.ReturnUrl = Request.QueryString["ReturnUrl"];
             var returnUrl = HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
             if (!String.IsNullOrEmpty(returnUrl))
             {
@@ -28,12 +27,11 @@ namespace SistemaAcademico.Presentacion.WebTradicional.Account
             if (IsValid)
             {
                 // Validar la contraseña del usuario
-                var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 var signinManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
 
                 // Esto no cuenta los errores de inicio de sesión hacia el bloqueo de cuenta
                 // Para habilitar los errores de contraseña para desencadenar el bloqueo, cambie a shouldLockout: true
-                var result = signinManager.PasswordSignIn(Email.Text, Password.Text, RememberMe.Checked, shouldLockout: false);
+                var result = signinManager.PasswordSignIn(txtUsuario.Text, Password.Text, RememberMe.Checked, shouldLockout: false);
 
                 switch (result)
                 {
@@ -42,12 +40,6 @@ namespace SistemaAcademico.Presentacion.WebTradicional.Account
                         break;
                     case SignInStatus.LockedOut:
                         Response.Redirect("/Account/Lockout");
-                        break;
-                    case SignInStatus.RequiresVerification:
-                        Response.Redirect(String.Format("/Account/TwoFactorAuthenticationSignIn?ReturnUrl={0}&RememberMe={1}", 
-                                                        Request.QueryString["ReturnUrl"],
-                                                        RememberMe.Checked),
-                                          true);
                         break;
                     case SignInStatus.Failure:
                     default:

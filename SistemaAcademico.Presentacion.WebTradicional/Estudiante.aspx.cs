@@ -11,6 +11,9 @@ namespace SistemaAcademico.Presentacion.WebTradicional
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var usuario = ((System.Security.Claims.ClaimsIdentity)User.Identity).Claims
+                .Where(c => c.Type == "Identificacion")
+                .Select(c => c.Value).SingleOrDefault();
 
         }
 

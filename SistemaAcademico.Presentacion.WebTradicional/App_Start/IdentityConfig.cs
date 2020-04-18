@@ -53,7 +53,7 @@ namespace SistemaAcademico.Presentacion.WebTradicional
                 RequireNonLetterOrDigit = true,
                 RequireDigit = true,
                 RequireLowercase = true,
-                RequireUppercase = true,
+                RequireUppercase = true,                
             };
 
             // Registre proveedores de dos factores. Esta aplicación usa Teléfono y Correos electrónico como paso para la recepción de un código para comprobar el usuario

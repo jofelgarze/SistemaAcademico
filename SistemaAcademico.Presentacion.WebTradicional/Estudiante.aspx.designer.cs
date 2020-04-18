@@ -15,6 +15,15 @@ namespace SistemaAcademico.Presentacion.WebTradicional
     {
 
         /// <summary>
+        /// Control ddlTipoDoc.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoDoc;
+
+        /// <summary>
         /// Control txtNombres.
         /// </summary>
         /// <remarks>
@@ -76,5 +85,14 @@ namespace SistemaAcademico.Presentacion.WebTradicional
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource sdsEstudiantes;
+
+        /// <summary>
+        /// Control sdsCatalogo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sdsCatalogo;
     }
 }

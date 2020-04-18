@@ -11,7 +11,11 @@ namespace SistemaAcademico.Presentacion.Web.Administracion
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            CargarRegistros();
+            if (!IsPostBack)
+            {
+                CargarRegistros();
+            }
+            
         }
 
         private void CargarRegistros() {
@@ -51,5 +55,15 @@ namespace SistemaAcademico.Presentacion.Web.Administracion
                 lblMensaje.Text = resultado.Mensaje;
             }
         }
+
+        protected void gdv_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "view")
+            {
+                Response.Redirect("/Administracion/ModificarEstudiante.aspx?Id=" + e.CommandArgument);
+            }
+           
+        }
+
     }
 }

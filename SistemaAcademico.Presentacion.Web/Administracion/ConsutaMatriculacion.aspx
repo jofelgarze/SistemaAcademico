@@ -16,7 +16,7 @@
                     <asp:BoundField AccessibleHeaderText="Nombres" DataField="Nombres" HeaderText="Nombres" ReadOnly="True" />
                     <asp:TemplateField ShowHeader="False">
                         <ItemTemplate>
-                            <asp:LinkButton ID="colBtnModificar" runat="server" CausesValidation="false" CommandName="" OnClick="colBtnModificar_Click" Text="Modificar"></asp:LinkButton>
+                            <asp:LinkButton ID="colBtnModificar" runat="server" CausesValidation="false" CommandName="view"  CommandArgument='<%# Bind("CodigoEstudiante") %>' OnClick="colBtnModificar_Click" Text="Modificar"></asp:LinkButton>
                             &nbsp;|
                             <asp:LinkButton ID="colBtnEliminar" runat="server" CausesValidation="false" CommandName="" OnClick="colBtnEliminar_Click" OnClientClick="return confirm('¿Desea eliminar el registro?')" Text="Eliminar"></asp:LinkButton>
                         </ItemTemplate>

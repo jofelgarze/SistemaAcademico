@@ -32,6 +32,7 @@ namespace SistemaAcademico.Presentacion.Web.Administracion
                 pnlMensaje.CssClass = "alert alert-success";
                 pnlMensaje.Visible = true;
                 lblMensaje.Text = resultado.Mensaje + "; Id. Estudiante: " + resultado.Datos;
+                //Response.Redirect("/Administracion/ModificarEstudiante.aspx?Id=" + resultado.Datos); //Redireccionar a consulta
             }
             else {
                 pnlMensaje.CssClass = "alert alert-danger";

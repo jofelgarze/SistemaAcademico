@@ -56,17 +56,8 @@
                             <ul class="dropdown-menu">
                                 <li><a href="/Administracion/ConsutaMatriculacion.aspx">Consultar Estudiantes</a></li>
                                 <li><a href="/Administracion/MatriculacionEstudiante.aspx">Matricular Estudiante</a></li>
-                                 <li><a runat="server" href="~/About">Adm. Roles</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Catalogos <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/Administracion/Catalogos/" >Consulta</a></li>
-                                <li><a href="/Administracion/Catalogos/Mantenimiento.aspx" >Matenimiento</a></li>
-                            </ul>
-                        </li> 
-
                         <asp:LoginView runat="server" ViewStateMode="Disabled">
                             <AnonymousTemplate>
                             </AnonymousTemplate>

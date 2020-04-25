@@ -33,12 +33,21 @@ namespace SistemaAcademico.Presentacion.Web.Administracion
         protected global::System.Web.UI.WebControls.Label lblMensaje;
 
         /// <summary>
-        /// Control grvEstudianes.
+        /// Control dgvMatriculas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grvEstudianes;
+        protected global::System.Web.UI.WebControls.GridView dgvMatriculas;
+
+        /// <summary>
+        /// Control odsMatriculacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsMatriculacion;
     }
 }

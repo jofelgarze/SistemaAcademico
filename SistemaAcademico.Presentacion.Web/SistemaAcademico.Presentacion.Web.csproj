@@ -159,8 +159,6 @@
     <Content Include="Account\ManagePassword.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\ResetPassword.aspx" />
-    <Content Include="Administracion\Catalogos\Default.aspx" />
-    <Content Include="Administracion\Catalogos\Mantenimiento.aspx" />
     <Content Include="Administracion\ConsutaMatriculacion.aspx" />
     <Content Include="Administracion\MatriculacionEstudiante.aspx" />
     <Content Include="Administracion\ModificarEstudiante.aspx" />
@@ -295,20 +293,6 @@
     <Compile Include="Account\ResetPassword.aspx.designer.cs">
       <DependentUpon>ResetPassword.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Administracion\Catalogos\Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Administracion\Catalogos\Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Administracion\Catalogos\Mantenimiento.aspx.cs">
-      <DependentUpon>Mantenimiento.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Administracion\Catalogos\Mantenimiento.aspx.designer.cs">
-      <DependentUpon>Mantenimiento.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Administracion\ConsutaMatriculacion.aspx.cs">
       <DependentUpon>ConsutaMatriculacion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -363,7 +347,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Estudiante.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\MatriculacionBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seguridad\AsignarRoles.aspx.cs">
       <DependentUpon>AsignarRoles.aspx</DependentUpon>

@@ -10,32 +10,13 @@ namespace SistemaAcademico.Presentacion.Web.Administracion
     public partial class ConsutaMatriculacion : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-            if (!IsPostBack)
-            {
-                CargarRegistros();
-            }
-            
+        {            
         }
 
-        private void CargarRegistros() {
-            MatriculacionService.MatriculacionServiceClient serviceClient = new MatriculacionService.MatriculacionServiceClient();
-            var resultado = serviceClient.ConsultarEstudiantesMatriculados();
-            grvEstudianes.DataSource = resultado.Datos;
-            grvEstudianes.DataBind();
-        }
-
-        protected void colBtnModificar_Click(object sender, EventArgs e)
+        protected void dgvMatriculas_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            int fila = ((System.Web.UI.WebControls.GridViewRow)(sender as LinkButton).DataItemContainer).RowIndex;
-            string codigoEstudiante = grvEstudianes.Rows[fila].Cells[0].Text;
-            Response.Redirect("/Administracion/ModificarEstudiante.aspx?Id=" + codigoEstudiante,true);
-        }
-
-        protected void colBtnEliminar_Click(object sender, EventArgs e)
-        {
-            int fila = ((System.Web.UI.WebControls.GridViewRow)(sender as LinkButton).DataItemContainer).RowIndex;
-            string codigoEstudiante = grvEstudianes.Rows[fila].Cells[0].Text;
+            int fila = e.RowIndex;
+            string codigoEstudiante = dgvMatriculas.Rows[fila].Cells[1].Text;
 
             MatriculacionService.MatriculacionServiceClient serviceClient = new MatriculacionService.MatriculacionServiceClient();
 
@@ -43,7 +24,6 @@ namespace SistemaAcademico.Presentacion.Web.Administracion
 
             if (resultado.TipoRespuesta == MatriculacionService.TipoRespuestaEnum.OK)
             {
-                CargarRegistros();
                 pnlMensaje.CssClass = "alert alert-success";
                 pnlMensaje.Visible = true;
                 lblMensaje.Text = resultado.Mensaje;
@@ -55,15 +35,5 @@ namespace SistemaAcademico.Presentacion.Web.Administracion
                 lblMensaje.Text = resultado.Mensaje;
             }
         }
-
-        protected void gdv_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (e.CommandName == "view")
-            {
-                Response.Redirect("/Administracion/ModificarEstudiante.aspx?Id=" + e.CommandArgument);
-            }
-           
-        }
-
     }
 }

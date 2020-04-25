@@ -9,22 +9,34 @@
              <asp:Panel ID="pnlMensaje" runat="server" Visible="false">
                 <asp:Label ID="lblMensaje" runat="server" Text="[mensaje]"></asp:Label>
             </asp:Panel>
-            <asp:GridView ID="grvEstudianes" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-hover" HeaderStyle-CssClass="thead-dark">
+            <asp:GridView ID="dgvMatriculas" runat="server" AutoGenerateColumns="False" DataSourceID="odsMatriculacion"
+                 CssClass="table table-striped table-hover" AllowPaging="True" OnRowDeleting="dgvMatriculas_RowDeleting" >
                 <Columns>
-                    <asp:BoundField AccessibleHeaderText="Código Matricula" DataField="CodigoEstudiante" HeaderText="Cod." ReadOnly="True" />
-                    <asp:BoundField AccessibleHeaderText="Apellidos" DataField="Apellidos" HeaderText="Apellidos" ReadOnly="True" />
-                    <asp:BoundField AccessibleHeaderText="Nombres" DataField="Nombres" HeaderText="Nombres" ReadOnly="True" />
                     <asp:TemplateField ShowHeader="False">
+                        <EditItemTemplate>
+                            <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar"></asp:LinkButton>
+                            &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar"></asp:LinkButton>
+                        </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:LinkButton ID="colBtnModificar" runat="server" CausesValidation="false" CommandName="view"  CommandArgument='<%# Bind("CodigoEstudiante") %>' OnClick="colBtnModificar_Click" Text="Modificar"></asp:LinkButton>
-                            &nbsp;|
-                            <asp:LinkButton ID="colBtnEliminar" runat="server" CausesValidation="false" CommandName="" OnClick="colBtnEliminar_Click" OnClientClick="return confirm('¿Desea eliminar el registro?')" Text="Eliminar"></asp:LinkButton>
+                            <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit" Text="Editar"></asp:LinkButton>
+                            &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False" CommandName="Delete"  OnClientClick="return confirm('¿Desea eliminar el registro?')" Text="Eliminar"></asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
+                    <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
+                    <asp:BoundField DataField="Nombres" HeaderText="Nombres" SortExpression="Nombres" />
+                    <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" SortExpression="Apellidos" />
+                    <asp:BoundField DataField="FechaNacimiento" HeaderText="FechaNacimiento" SortExpression="FechaNacimiento" ReadOnly="True" Visible="False" />
+                    <asp:CheckBoxField DataField="Activo" HeaderText="Activo" SortExpression="Activo" />
                 </Columns>
-
-<HeaderStyle CssClass="thead-dark"></HeaderStyle>
-            </asp:GridView>
+             </asp:GridView>
+            <asp:ObjectDataSource ID="odsMatriculacion" runat="server" SelectMethod="consultarTodos" 
+                TypeName="SistemaAcademico.Presentacion.Web.Models.MatriculacionBL" 
+                DataObjectTypeName="SistemaAcademico.Presentacion.Web.Models.Estudiante" 
+                DeleteMethod="eliminar"  InsertMethod="insertar" UpdateMethod="modificar">
+                <DeleteParameters>
+                    <asp:Parameter Name="Id" Type="Int32" />
+                </DeleteParameters>
+             </asp:ObjectDataSource>
         </div>
     </div>
 

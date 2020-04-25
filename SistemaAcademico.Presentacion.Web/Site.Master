@@ -12,7 +12,6 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
@@ -57,6 +56,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="/Administracion/ConsutaMatriculacion.aspx">Consultar Estudiantes</a></li>
                                 <li><a href="/Administracion/MatriculacionEstudiante.aspx">Matricular Estudiante</a></li>
+                                 <li><a runat="server" href="~/About">Adm. Roles</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -65,10 +65,55 @@
                                 <li><a href="/Administracion/Catalogos/" >Consulta</a></li>
                                 <li><a href="/Administracion/Catalogos/Mantenimiento.aspx" >Matenimiento</a></li>
                             </ul>
-                        </li>
+                        </li> 
+                        <asp:LoginView runat="server" ViewStateMode="Disabled">
+                            <AnonymousTemplate>
+                            </AnonymousTemplate>
+                            <LoggedInTemplate>
+                            </LoggedInTemplate>
+                            <RoleGroups>
+                                <asp:RoleGroup Roles="Administrador">
+                                    <ContentTemplate>
+                                        <li class="dropdown">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Seguridad <span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                 <li><a runat="server" href="~/About">Asig. Roles</a></li>
+                                            </ul>
+                                        </li>
+                                    </ContentTemplate>
+                                </asp:RoleGroup>
+                                 <asp:RoleGroup Roles="Jefe">
+                                    <ContentTemplate>
+                                        <li class="dropdown">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">E/S Personal <span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                 <li><a runat="server" href="~/About">Horas Extras</a></li>
+                                            </ul>
+                                        </li>
+                                    </ContentTemplate>
+                                </asp:RoleGroup>
+                            </RoleGroups>
+                        </asp:LoginView>
+                        
                         <li><a runat="server" href="~/About">Acerca de</a></li>
                         <li><a runat="server" href="~/Contact">Contacto</a></li>
                     </ul>
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Register">Registrarse</a></li>
+                                <li><a runat="server" href="~/Account/Login">Iniciar sesión</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                <li>
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
                 </div>
             </div>
         </div>
@@ -80,7 +125,6 @@
                 <p>&copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET</p>
             </footer>
         </div>
-
     </form>
 </body>
 </html>

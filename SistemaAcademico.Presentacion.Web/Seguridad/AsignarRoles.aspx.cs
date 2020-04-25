@@ -16,7 +16,13 @@ namespace SistemaAcademico.Presentacion.Web.Seguridad
 
         protected void btnAsignarUsuario_Click(object sender, EventArgs e)
         {
+            sdsUsuariosDDL.Insert();
+            dgvUsuarios.DataBind();
+        }
 
+        protected void dgvUsuarios_RowDeleted(object sender, GridViewDeletedEventArgs e)
+        {
+            ddlUsuarios.DataBind();
         }
     }
 }

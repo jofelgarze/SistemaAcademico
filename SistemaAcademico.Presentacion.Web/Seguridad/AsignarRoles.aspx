@@ -22,10 +22,10 @@
                     <label class="form-label col-md-4">Usuarios:</label>
                     <div class="col-md-8">
                         <asp:DropDownList ID="ddlUsuarios" runat="server" CssClass="form-control" DataSourceID="sdsUsuariosDDL" DataTextField="UserName" DataValueField="Id"></asp:DropDownList>
-                        <asp:SqlDataSource ID="sdsUsuariosDDL" runat="server" ConnectionString="Data Source=.\SQLEXPRESS01;Initial Catalog=SistemaAcademico;Integrated Security=True;MultipleActiveResultSets=True;Application Name=SistemaAcademico_Data" InsertCommand="INSERT INTO AspNetUserRoles(UserId, RoleId) VALUES (@UserId, @RoleId)" ProviderName="System.Data.SqlClient" SelectCommand="SELECT AspNetUsers.Id, AspNetUsers.UserName, AspNetUserRoles.RoleId FROM AspNetUsers LEFT OUTER JOIN AspNetUserRoles ON AspNetUsers.Id = AspNetUserRoles.UserId WHERE (AspNetUserRoles.RoleId IS NULL) OR (AspNetUserRoles.RoleId &lt;&gt; @RoleId)">
+                        <asp:SqlDataSource ID="sdsUsuariosDDL" runat="server" ConnectionString="Data Source=.\SQLEXPRESS01;Initial Catalog=SistemaAcademico;Integrated Security=True;MultipleActiveResultSets=True;Application Name=SistemaAcademico_Data" InsertCommand="INSERT INTO AspNetUserRoles(UserId, RoleId) VALUES (@Id, @RoleId)" ProviderName="System.Data.SqlClient" SelectCommand="SELECT AspNetUsers.Id, AspNetUsers.UserName, AspNetUserRoles.RoleId FROM AspNetUsers LEFT OUTER JOIN AspNetUserRoles ON AspNetUsers.Id = AspNetUserRoles.UserId WHERE (AspNetUserRoles.RoleId IS NULL) OR (AspNetUserRoles.RoleId &lt;&gt; @RoleId)">
                             <InsertParameters>
-                                <asp:Parameter Name="UserId" />
-                                <asp:Parameter Name="RoleId" />
+                                <asp:ControlParameter ControlID="ddlUsuarios" DefaultValue="0" Name="Id" PropertyName="SelectedValue" />
+                                <asp:ControlParameter ControlID="dgvRoles" DefaultValue="0" Name="RoleId" PropertyName="SelectedValue" />
                             </InsertParameters>
                             <SelectParameters>
                                 <asp:ControlParameter ControlID="dgvRoles" DefaultValue="0" Name="RoleId" PropertyName="SelectedValue" />
@@ -38,7 +38,7 @@
                 </div>                
             </div>
             <asp:GridView ID="dgvUsuarios" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" 
-                DataKeyNames="UserId,RoleId" DataSourceID="sdsUsuarios" CssClass="table table-striped">
+                DataKeyNames="UserId,RoleId" DataSourceID="sdsUsuarios" CssClass="table table-striped" OnRowDeleted="dgvUsuarios_RowDeleted">
                 <Columns>
                     <asp:BoundField DataField="UserId" HeaderText="UserId" ReadOnly="True" SortExpression="UserId" Visible="False" />
                     <asp:BoundField DataField="RoleId" HeaderText="RoleId" SortExpression="RoleId" ReadOnly="True" Visible="False" />
